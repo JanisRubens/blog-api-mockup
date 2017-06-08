@@ -1,0 +1,203 @@
+[
+    {
+        "done": false,
+        "routeName": "v0",
+        "route":"/v0",
+        "description": "blogs api version v_0",
+        "childRoutes": [{
+            "routeName": "api",
+            "route":"/api",
+            "description": "entry for CRUD data operations",
+            "done": false,
+            "childRoutes": [{
+                "routeName": "public",
+                "route":"/public",
+                "description": "entry for public routes",
+                "done": false,
+                "childRoutes": [{
+                    "routeName": "posts",
+                    "route":"/posts",
+                    "description": "entry for posts operations",
+                    "done": false,
+                    "routeOperations": [{
+                        "type": "GET",
+                        "description": "Returns Array of objects, where each object is a post",
+                        "response": {
+                            "success": {
+                                "code": 200,
+                                "posts": "Array of objects"
+                            },
+                            "failure": {
+                                "code": 404,
+                                "msg": "Not Found"
+                            }
+                        }
+                    },
+                    {
+                        "type": "GET",
+                        "params": "/:postID",
+                        "description": "Returns a single post object, where each object is a post",
+                        "response": {
+                            "success": {
+                                "code": 200,
+                                "posts": "Array of objects"
+                            },
+                            "failure": {
+                                "code": 404,
+                                "msg": "Not Found"
+                            }
+                        }
+                    }]
+                },
+                {
+                    "routeName": "comments",
+                    "route":"/comments",
+                    "description": "entry for coments operations",
+                    "done": false,
+                    "routeOperations": [{
+                        "type": "GET",
+                        "description": "Returns Array of objects, where each object is a comment section",
+                        "response": {
+                            "success": {
+                                "code": 200,
+                                "posts": "Array of objects"
+                            },
+                            "failure": {
+                                "code": 404,
+                                "msg": "Not Found"
+                            }
+                        }
+                    },
+                    {
+                        "type": "GET",
+                        "params": "/:commentID",
+                        "description": "Returns a single comment object, where each object is a comment section",
+                        "response": {
+                            "success": {
+                                "code": 200,
+                                "posts": "Array of objects"
+                            },
+                            "failure": {
+                                "code": 404,
+                                "msg": "Not Found"
+                            }
+                        }
+                    }]
+                },
+                {
+                    "routeName": "categories",
+                    "route":"/categories",
+                    "description": "entry for categories operations",
+                    "done": false,
+                    "routeOperations": [{
+                        "type": "GET",
+                        "description": "Returns Array of category strings",
+                        "response": {
+                            "success": {
+                                "code": 200,
+                                "posts": "Array of objects"
+                            },
+                            "failure": {
+                                "code": 404,
+                                "msg": "Not Found"
+                            }
+                        }
+                    }]
+                }]
+            },
+            {
+                "routeName": "private",
+                "route":"/private",
+                "description": "entry for private routes",
+                "done": false,
+                "childRoutes": [{
+                    "routeName": "posts",
+                    "route":"/posts",
+                    "description": "entry for posts operations",
+                    "done": false
+                },
+                {
+                    "routeName": "comments",
+                    "route":"/comments",
+                    "description": "entry for coments operations",
+                    "done": false
+                },
+                {
+                    "routeName": "categories",
+                    "route":"/categories",
+                    "description": "entry for categories operations",
+                    "done": false
+                }]
+            }]
+        },
+        {
+            "routeName": "auth",
+            "route": "/auth",
+            "description": "entry for authentication related operations",
+            "done": false,
+            "childRoutes": [{
+                "routeName": "register",
+                "route": "/register",
+                "description": "entry point for registering",
+                "done": false,
+                "routeOperations": [{
+                    "type": "POST",
+                    "description": "sends new user data to server",
+                    "response": {
+                        "success": {
+                            "code": 200,
+                            "msg": "you have been succesfuly registered"
+                        },
+                        "failure": {
+                            "code": 406,
+                            "msg": "Not Acceptable"
+                        }
+                    }
+
+                }]
+            },
+            {
+                "routeName": "login",
+                "route": "/login",
+                "description": "entry point for login",
+                "done": false,
+                "routeOperations": [{
+                    "type": "GET",
+                    "description": "authorize user",
+                    "response": {
+                        "success": {
+                            "code": 200,
+                            "msg": "success"
+                        },
+                        "failure": {
+                            "code": 401,
+                            "msg": "Unauthorized"
+                        }
+                    }
+
+                }]
+            },
+            {
+                "routeName": "logout",
+                "route": "/logout",
+                "description": "entry point for loging out",
+                "done": false,
+                "routeOperations": [{
+                    "type": "GET",
+                    "description": "de-authorize user",
+                    "response": {
+                        "success": {
+                            "code": 200,
+                            "msg": "success"
+                        },
+                        "failure": {
+                            "code": 400,
+                            "msg": "Bad Request"
+                        }
+                    }
+
+                }]
+            }]
+        }]
+    }
+]
